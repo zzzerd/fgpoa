@@ -1,0 +1,59 @@
+==37710== Memcheck, a memory error detector
+==37710== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==37710== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
+==37710== Command: /home/zerd/test416/abPOA-gai/bin/abpoa -i /home/zerd/test416/11snp_630abpoa.gfa -r 4 -M 2 -X 4 -O 0,0 -E 2,0 -b -1 -o /home/zerd/test416/abPOA-gai/bin/710.fa /home/zerd/test416/sd1_0001.fastq
+==37710== Parent PID: 11991
+==37710== 
+==37710== Conditional jump or move depends on uninitialised value(s)
+==37710==    at 0x10DD75: improve_graph (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10E867: abpoa_poa (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10F81E: abpoa_msa1 (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10B364: abpoa_main (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10AC59: main (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710== 
+==37710== Warning: set address range perms: large range [0x93ee080, 0x293ee080) (undefined)
+==37710== 
+==37710== Process terminating with default action of signal 2 (SIGINT)
+==37710==    at 0x12DA90: simd_abpoa_align_sequence_to_subgraph (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x14235D: simd_abpoa_align_sequence_to_graph (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10E9FC: abpoa_poa (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10F81E: abpoa_msa1 (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10B364: abpoa_main (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10AC59: main (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710== 
+==37710== HEAP SUMMARY:
+==37710==     in use at exit: 551,695,183 bytes in 427,764 blocks
+==37710==   total heap usage: 666,371 allocs, 238,607 frees, 574,472,483 bytes allocated
+==37710== 
+==37710== 96 bytes in 1 blocks are definitely lost in loss record 23 of 79
+==37710==    at 0x484596C: posix_memalign (vg_replace_malloc.c:2216)
+==37710==    by 0x1263D2: SIMDMalloc (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x12BF96: simd_abpoa_align_sequence_to_subgraph (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x14235D: simd_abpoa_align_sequence_to_graph (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10E9FC: abpoa_poa (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10F81E: abpoa_msa1 (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10B364: abpoa_main (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10AC59: main (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710== 
+==37710== 288 bytes in 1 blocks are definitely lost in loss record 29 of 79
+==37710==    at 0x484596C: posix_memalign (vg_replace_malloc.c:2216)
+==37710==    by 0x1263D2: SIMDMalloc (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x12BC4E: simd_abpoa_align_sequence_to_subgraph (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x14235D: simd_abpoa_align_sequence_to_graph (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10E9FC: abpoa_poa (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10F81E: abpoa_msa1 (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10B364: abpoa_main (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710==    by 0x10AC59: main (in /home/zerd/test416/abPOA-gai/bin/abpoa)
+==37710== 
+==37710== LEAK SUMMARY:
+==37710==    definitely lost: 384 bytes in 2 blocks
+==37710==    indirectly lost: 0 bytes in 0 blocks
+==37710==      possibly lost: 0 bytes in 0 blocks
+==37710==    still reachable: 551,694,799 bytes in 427,762 blocks
+==37710==         suppressed: 0 bytes in 0 blocks
+==37710== Reachable blocks (those to which a pointer was found) are not shown.
+==37710== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==37710== 
+==37710== Use --track-origins=yes to see where uninitialised values come from
+==37710== For lists of detected and suppressed errors, rerun with: -s
+==37710== ERROR SUMMARY: 3469 errors from 3 contexts (suppressed: 0 from 0)
